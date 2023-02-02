@@ -1,0 +1,44 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, black , rgb(140, 128, 137));
+    height: 120px;
+    /* background-image: linear-gradient(to right, purple, rgb(151, 24, 190)); */
+
+}
+
+.title {
+    display: flex;
+}
+
+.logo {
+    width: 150px;
+}
+
+.links {
+    display: flex;
+    list-style: none;
+}
+
+.links > li { 
+    margin-right: 30px;  
+    font-family: 'Aboreto', cursive;
+}
+
+.pagelink {
+    color: azure;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.pagelink:hover {
+    color: black;
+}
+
+.heading {
+    font-size: 80px;
+    font-family: 'Ubuntu', sans-serif;
+    color: aliceblue;
+}
+
