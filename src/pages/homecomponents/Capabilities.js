@@ -66,8 +66,8 @@ export default function Capabilities () {
             <ul>
                 <li className="capability">I can log his workouts.</li>
                 <ul>
-                    <li><Link to="/exercises">Add exercises</Link></li>
-                    <li><Link to="/workouts">Add workouts</Link></li>
+                    <li><Link to="/exercises">View exercises</Link></li>
+                    <li><Link to="/workouts">View workouts</Link></li>
                     <li><Link to="/dashboard">View dashboard</Link></li>
                 </ul>
                 <li className="capability">I help him plan his life in general.</li>

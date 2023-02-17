@@ -1,0 +1,11 @@
+.exercise {
+    padding-left: 20px;
+}
+
+.buttons {
+    display: flex;
+    padding-left: 40px;
+    margin-top: 30px;
+    width: 150px;
+    justify-content: space-between;
+}

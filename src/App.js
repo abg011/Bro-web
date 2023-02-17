@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Layout from './pages/Layout';
 import Exercises from './pages/Exercise';
 import NoPage from './pages/NoPage';
+import AddExercise from './pages/AddExercise';
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 				<Route path="dashboard" element={<Dashboard />} />
 				<Route path="contact" element={<Contact />} />
 				<Route path="exercises" element={<Exercises />}/>
+				<Route path="exercises/add" element={<AddExercise />}/>
 				<Route path="*" element={<NoPage />} />
 				</Route>
 			</Routes>
