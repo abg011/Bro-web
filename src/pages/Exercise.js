@@ -8,7 +8,7 @@ export default function Exercises() {
 
     useEffect(() => {
         const fetchExercises = async () => {
-            console.log("Called this")
+            // console.log("Called this")
             fetch('http://localhost:3002/exercises')
                 .then(res => res.json())
                 .then(ex => {

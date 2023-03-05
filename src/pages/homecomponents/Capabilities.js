@@ -74,6 +74,7 @@ export default function Capabilities () {
                 <ul>
                     <li><Link to="/planner">Planner</Link></li>
                 </ul>
+                <li className="capability">Try <Link to="/clearit">Clearit!</Link></li>
             </ul>
         </div>
     );

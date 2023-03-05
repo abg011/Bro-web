@@ -1,0 +1,32 @@
+.divcomponent {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    /* height: 650px; */
+}
+
+/* *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 1px solid red;
+} */
+
+.formdiv{
+    /* min-width: 100%; */
+    height: 100%;
+    /* border: solid #009bf5 5vw; */
+    /* border: 1px solid red; */
+    margin: 0vw;
+    padding: 3vw ;
+    position:relative; 
+    /* position:relative for .prevBtn and .nextBtn position:absolute; */
+}
+
+.formdiv h1{
+    font-size: 35px ;
+    text-align: center;
+    color: #759abf;
+    margin: 0 0 .5vh 0;
+}

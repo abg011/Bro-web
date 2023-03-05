@@ -1,17 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../../css/ExerciseCard.css'
 
 export default function ExerciseCard ({val}) {   
+    const navigate = useNavigate();
 
-    const exerciseCardOnClickHandler = function () {
-        return (
-            <Link to={`/dta/${val._id}`}></Link>
-        );
-    }
-
-    // console.log(JSON.stringify(val));
     return (
-        <div className="exerciseCard" onClick={exerciseCardOnClickHandler}>
+        <div className="exerciseCard" onClick={() => {navigate(`/exercises/${val._id}`, {state: {val}})}}>
             <h3 className='exName'>
                 {val.name}
             </h3>

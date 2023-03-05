@@ -1,9 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Select from "react-select"
 import "./../css/AddExercise.css"
 
 export default function AddExercise() {
     let [input, setInput] = useState({});
+    let [categoriesList, setCategoriesList] = useState([]);
+    let [musclesList, setMusclesList] = useState([]);
+
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            // console.log("Called this")
+            fetch('http://localhost:3002/musclegroups')
+                .then(res => res.json())
+                .then(mgs => {
+                    let options =  mgs.map( mg => {
+                        return {value: mg.name, label: mg.name, id: mg._id}
+                    });
+                    // console.log("List: ", ex);
+                    setCategoriesList(options);
+                })
+        }
+
+        fetchCategories();
+    }, [])
 
     const addExercise = async () => {
         // console.log(JSON.stringify(input));
@@ -36,8 +57,8 @@ export default function AddExercise() {
     }
 
     const setExerciseCategory = async (val) => {
-        // console.log(val.target.value);
-        setInput({...input, muscleGroups: val.target.value});
+        console.log(val);
+        setInput({...input, muscleGroups: val});
     }
 
     const setMuscles = async (val) => {
@@ -56,23 +77,45 @@ export default function AddExercise() {
     }
 
     const getName = () => {return (input.name) ? input.name: ""};
-    const getCategory = () => {return (input.muscleGroups) ? input.muscleGroups: ""};
+    // const getCategory = () => {return (input.muscleGroups) ? input.muscleGroups: ""};
     const getMuscles = () => {return (input.muscles) ? input.muscles: ""};
     const getDescription = () => {return (input.description) ? input.description: ""};
     const getReference = () => {return (input.reference) ? input.reference: ""};
-
+    
     return (
         <div className="exercise">
             <h1 className="header">Add new exercise</h1>
-            <h3>Name of exercise *:  <input className="name" placeholder="name of the exercise" onChange={setName} value={getName()}></input></h3>
-            <h3>Category: <input className="name" placeholder="select category" onChange={setExerciseCategory} value={getCategory()}></input></h3>
-            <h3>Muscles hit: <input className="name" placeholder="select muscles" onChange={setMuscles} value={getMuscles()}></input></h3>
-            <h3>Description: <input className="name" placeholder="add short description" onChange={setDescription} value={getDescription()}></input></h3>
-            <h3>Reference: <input className="name" placeholder="video/image reference" onChange={setReference} value={getReference()}></input></h3>
-            <div className="buttons">
-                <button onClick={addExercise}>Add</button>
-                <Link to="/exercises"><button>Go Back</button></Link>
-            </div>
+            <form onSubmit={addExercise}>
+                <label>
+                    <h3>Name of exercise:* <input className="nameInput" placeholder="Name of the Exercise" onChange={setName} value={getName()}></input></h3>
+                </label>
+                <label className="categoryLabel">
+                    <h3>
+                        Category:* 
+                    </h3>
+                    <Select
+                        isMulti
+                        name="categoryInput"
+                        options={categoriesList}
+                        onChange={setExerciseCategory}
+                        className="categoryInput"
+                    />
+                </label>
+                <label>
+                    <h3>Muscles hit: <input className="name" placeholder="Select Muscles" onChange={setMuscles} value={getMuscles()}></input></h3>
+                </label>
+                <label>
+                    <h3>Description: <input className="name" placeholder="Add Short Description" onChange={setDescription} value={getDescription()}></input></h3>
+                </label>
+                <label>
+                    <h3>Reference: <input className="name" placeholder="Video/Image Reference" onChange={setReference} value={getReference()}></input></h3>
+                </label>
+                <div className="buttons">
+                    <input type="submit" value="Add"></input>
+                    <Link to="/exercises"><button>Go Back</button></Link>
+                </div>
+            </form>
+            
         </div>
     );
 }

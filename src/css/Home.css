@@ -1,5 +1,6 @@
 .homeMain {
     padding-left: 20px;
+    background-repeat: no-repeat;
 }
 
 .greeting {
@@ -8,4 +9,10 @@
 
 .capabilities {
     margin-bottom: 20px;
+}
+
+.player {
+    margin-left: auto;
+    margin-right: auto;
+    border-color:blueviolet;
 }
